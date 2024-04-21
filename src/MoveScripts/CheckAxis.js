@@ -1,4 +1,4 @@
-import Enums from '../../../version2/chess-server/src/Enums.js'
+import Enums from '../Enums.js';
 import movePiece from './MovePiece.js';
 import isKingCurrentlyInCheck from '../CheckScripts/IsKingCurrentlyInCheck.js';
 

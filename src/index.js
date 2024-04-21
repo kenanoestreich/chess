@@ -6,7 +6,7 @@
 // Import all-encompassing requirements
 import React from 'react';
 import { createRoot } from 'react-dom/client';
-import './index.css';
+import 'src/index.css';
 import io from 'socket.io-client';
 
 // Import necessary scripts from HelperScripts/
@@ -33,7 +33,7 @@ let socket = io(/* INSERT SERVER LOCATION HERE - WAS PREVIOUSLY AWS */);
 let your_color;
 
 // array of rootss on the same element.
-// TODO: FIX THI so we don't get a warning for calling createRoot() multiple timeS IN GAME'S RENDER()
+// TODO: FIX THIS so we don't get a warning for calling createRoot() multiple times IN GAME'S RENDER()
 let roots=Array(8848).fill(null); // maximum possible number of moves
 
 // Keep tracked of last piece clicked for the sake of moving pieces

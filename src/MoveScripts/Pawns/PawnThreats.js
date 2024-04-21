@@ -1,4 +1,4 @@
-import Enums from "../../../../version2/chess-server/src/Enums";
+import Enums from "src/Enums";
 
 // Helper function for showing pawn threats for checkThreatenedSquares()
 function displayPawnThreats(currentPieceRow, currentPieceCol, whitesTurn, playerColor, squares) {

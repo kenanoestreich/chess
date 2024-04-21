@@ -1,4 +1,8 @@
-import Board from "components/Board";
+import Board from "src/components/Board";
+import React from "react";
+import Enums from "src/Enums";
+import isCheckmate from "src/CheckScripts/IsCheckmate";
+import isStalemate from "src/CheckScripts/IsStalemate";
 
 // Game Class
 // Highest level structure for playing the game
@@ -93,8 +97,8 @@ class Game extends React.Component {
     }
   
     componentDidMount(){
-      socket.on("OpponentMoved", (data) => this.opponentMoved(data["startSquare"],data["endSquare"]));
-      socket.on("ReceiveRecord", function(data){
+      // socket.on("OpponentMoved", (data) => this.opponentMoved(data["startSquare"],data["endSquare"]));
+      // socket.on("ReceiveRecord", function(data){
         console.log(JSON.stringify(data));  
         root.render(
           <div>
@@ -775,3 +779,5 @@ class Game extends React.Component {
       
     }
   }
+
+export default Game; 

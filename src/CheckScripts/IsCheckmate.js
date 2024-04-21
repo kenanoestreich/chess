@@ -1,4 +1,4 @@
-import Enums from "../../../version2/chess-server/src/Enums";
+import Enums from "../Enums";
 import displayBishopMoves from "../MoveScripts/Bishops/BishopMoves";
 import displayKnightMoves from "../MoveScripts/Knights/KnightMoves";
 import displayPawnMoves from "../MoveScripts/Pawns/PawnMoves";

@@ -1,4 +1,4 @@
-import Enums from "../../../version2/chess-server/src/Enums";
+import Enums from "src/Enums";
 
 // alternate CheckAxis that doesn't care about putting the king in check. 
 function checkAxisThreat(currentPieceRow, currentPieceCol, rowDelta, colDelta, squares, miscSquares, whitesTurn){

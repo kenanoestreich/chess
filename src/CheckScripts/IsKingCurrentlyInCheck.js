@@ -1,4 +1,4 @@
-import Enums from "../../../version2/chess-server/src/Enums";
+import Enums from "../Enums";
 import checkThreatenedSquares from "./CheckThreatenedSquares";
 
 // Function to detect if King is CURRENTLY in check. 

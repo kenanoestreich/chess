@@ -1,6 +1,6 @@
-import Enums from "../../../../version2/chess-server/src/Enums";
-import isKingCurrentlyInCheck from "../../CheckScripts/IsKingCurrentlyInCheck";
-import movePiece from "../MovePiece";
+import Enums from "src/Enums";
+import isKingCurrentlyInCheck from "src/CheckScripts/IsKingCurrentlyInCheck";
+import movePiece from "src/MoveScripts/MovePiece";
 
 // Kings
 // TO DO: NEED TO NOT DISPLAY MOVES THAT WOULD PUT THE KING IN CHECK AND CASTLING

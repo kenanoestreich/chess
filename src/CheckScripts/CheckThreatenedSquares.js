@@ -1,4 +1,4 @@
-import Enums from "../../../version2/chess-server/src/Enums";
+import Enums from "../Enums";
 import displayPawnThreats from "../MoveScripts/Pawns/PawnThreats";
 import displayRookThreats from "../MoveScripts/Rooks/RookThreats";
 import displayKnightThreats from "../MoveScripts/Knights/KnightThreats";

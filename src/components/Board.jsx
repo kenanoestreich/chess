@@ -1,3 +1,4 @@
+import React from "react";
 
 // Define Square Object and its props
 // squareColor is used to track where pieces can move legally

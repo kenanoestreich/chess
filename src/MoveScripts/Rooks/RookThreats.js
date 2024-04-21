@@ -1,5 +1,5 @@
-import Enums from "../../../../version2/chess-server/src/Enums";
-import checkAxisThreat from "../CheckAxisThreat";
+import Enums from "src/Enums";
+import checkAxisThreat from "src/MoveScripts/CheckAxisThreat";
 
 function displayRookThreats(currentPieceRow, currentPieceCol, whitesTurn, squares) {
     let miscSquares = Array(8).fill(null).map(()=>Array(8).fill(null));

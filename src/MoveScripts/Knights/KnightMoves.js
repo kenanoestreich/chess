@@ -1,6 +1,6 @@
-import Enums from '../../../../version2/chess-server/src/Enums.js'
-import isKingCurrentlyInCheck from '../../CheckScripts/IsKingCurrentlyInCheck.js';
-import movePiece from '../MovePiece.js';
+import Enums from 'src/Enums';
+import isKingCurrentlyInCheck from 'src/CheckScripts/IsKingCurrentlyInCheck';
+import movePiece from 'src/MoveScripts/MovePiece';
 
 // ALL THE "display_____Moves" FUNCTIONS DO THE FOLLOWING (ONLY DIFFERENCE IS HOW THAT PIECE MOVES):
 // input current board state and piece location to move and change css for all the 

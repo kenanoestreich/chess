@@ -1,4 +1,4 @@
-import Enums from "../../../../version2/chess-server/src/Enums";
+import Enums from "src/Enums";
 
 // Slightly altered version of displayKingMoves() only to be called by checkThreatenedSquares(). 
 // Otherwise code gets stuck in infinite loop checking to make sure each king is not threatening the other. 

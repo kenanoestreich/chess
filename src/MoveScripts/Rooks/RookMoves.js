@@ -1,5 +1,5 @@
-import Enums from "../../../../version2/chess-server/src/Enums";
-import checkAxis from "../CheckAxis";
+import Enums from "src/Enums";
+import checkAxis from "src/MoveScripts/CheckAxis"
 
 // Rooks 
 function displayRookMoves(currentPieceRow, currentPieceCol, whitesTurn, squares, playerColor) {

@@ -1,12 +1,12 @@
-import Enums from "../../../version2/chess-server/src/Enums";
-import isKingCurrentlyInCheck from "./IsKingCurrentlyInCheck";
-import displayKnightMoves from "../MoveScripts/Knights/KnightMoves";
-import displayKingMoves from "../MoveScripts/Kings/KingMoves";
-import displayPawnMoves from "../MoveScripts/Pawns/PawnMoves";
-import displayQueenMoves from "../MoveScripts/Queens/QueenMoves";
-import displayRookMoves from "../MoveScripts/Rooks/RookMoves";
-import displayBishopMoves from "../MoveScripts/Bishops/BishopMoves";
-import squaresCombiner from "../HelperScripts/SquaresCombiner";
+import Enums from "src/Enums";
+import isKingCurrentlyInCheck from "src/CheckScripts/IsKingCurrentlyInCheck";
+import displayKnightMoves from "src/MoveScripts/Knights/KnightMoves";
+import displayKingMoves from "src/MoveScripts/Kings/KingMoves";
+import displayPawnMoves from "src/MoveScripts/Pawns/PawnMoves";
+import displayQueenMoves from "src/MoveScripts/Queens/QueenMoves";
+import displayRookMoves from "src/MoveScripts/Rooks/RookMoves";
+import displayBishopMoves from "src/MoveScripts/Bishops/BishopMoves";
+import squaresCombiner from "src/HelperScripts/SquaresCombiner";
 
 function isStalemate(kingColor, squares, pawnColor, enPassantTarget){
     let legalMoves = Array(8).fill(null).map(()=>Array(8).fill(null));

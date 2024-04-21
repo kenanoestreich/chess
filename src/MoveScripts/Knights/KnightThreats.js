@@ -1,4 +1,4 @@
-import Enums from '../../../../version2/chess-server/src/Enums.js'
+import Enums from "src/Enums";
 
 // To be used in isKingCurrentlyInCheck()
 function displayKnightThreats(currentPieceRow, currentPieceCol, whitesTurn, squares) {

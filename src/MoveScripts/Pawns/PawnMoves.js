@@ -1,6 +1,6 @@
-import Enums from "../../../../version2/chess-server/src/Enums";
-import movePiece from "../MovePiece";
-import isKingCurrentlyInCheck from "../../CheckScripts/IsKingCurrentlyInCheck";
+import Enums from "src/Enums";
+import movePiece from "src/MoveScripts/MovePiece";
+import isKingCurrentlyInCheck from "src/CheckScripts/IsKingCurrentlyInCheck";
 
 // Pawns
 function displayPawnMoves(currentPieceRow, currentPieceCol, whitesTurn, playerColor, squares, enPassantTarget) {

@@ -1,4 +1,4 @@
-import Enums from '../../../../version2/chess-server/src/Enums.js'
+import Enums from '../../Enums.js';
 import checkAxis from '../CheckAxis.js';
 
 // ALL THE "display_____Moves" FUNCTIONS DO THE FOLLOWING (ONLY DIFFERENCE IS HOW THAT PIECE MOVES):

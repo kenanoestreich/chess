@@ -1,5 +1,5 @@
-import Enums from '../../../../version2/chess-server/src/Enums.js'
-import checkAxisThreat from '../CheckAxisThreat.js';
+import Enums from 'src/Enums.js';
+import checkAxisThreat from 'src/MoveScripts/CheckAxisThreat';
 
 function displayBishopThreats(currentPieceRow, currentPieceCol, whitesTurn, squares) {
     let miscSquares = Array(8).fill(null).map(()=>Array(8).fill(null));
