@@ -97,8 +97,8 @@ class Game extends React.Component {
     }
   
     componentDidMount(){
-      // socket.on("OpponentMoved", (data) => this.opponentMoved(data["startSquare"],data["endSquare"]));
-      // socket.on("ReceiveRecord", function(data){
+      socket.on("OpponentMoved", (data) => this.opponentMoved(data["startSquare"],data["endSquare"]));
+      socket.on("ReceiveRecord", function(data){
         console.log(JSON.stringify(data));  
         root.render(
           <div>
