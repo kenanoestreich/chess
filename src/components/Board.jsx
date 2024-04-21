@@ -1,4 +1,16 @@
 
+// Define Square Object and its props
+// squareColor is used to track where pieces can move legally
+// onClick eventually refers back to handleClick()
+// value is the unicode of a piece or null
+function Square(props) {
+    return (
+      <button className={props.squareColor} onClick={props.onClick} id={props.name}>
+        {props.value}
+      </button>
+    );
+}
+
 // Board Class 
 // 64 Squares of chess board 
 // ---------------------------------------------------------------------------------
