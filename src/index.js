@@ -1,38 +1,27 @@
 // Largely serving as my "main" for now until I decide how best to organize all this code
 
-// STARTING POINT FOR ALL THIS CODE WAS THE FOLLOWING TUTORIAL CODE: 
-// https://reactjs.org/tutorial/tutorial.html
-
 // Import all-encompassing requirements
 import React from 'react';
 import { createRoot } from 'react-dom/client';
 import 'src/index.css';
-import io from 'socket.io-client';
+import express from 'express';
+import { createServer } from 'node:http';
+import { fileURLToPath } from 'node:url';
+import { dirname, join } from 'node:path';
+import { Server } from 'socket.io';
+import sqlite3 from 'sqlite3';
+import { open } from 'sqlite';
 
-// Import necessary scripts from HelperScripts/
-import findPieceAndDisplay from './HelperScripts/FindPieceAndDisplay.js';
-
-// Import necessary scripts from CheckScripts/
-import isKingCurrentlyInCheck from './CheckScripts/IsKingCurrentlyInCheck.js';
-import isStalemate from './CheckScripts/IsStalemate.js';
-import isCheckmate from './CheckScripts/IsCheckmate.js';
-
-// Import necessary scripts from MoveScripts/ 
-import movePiece from './MoveScripts/MovePiece.js';
-
-// Import Timer scripts
-import Timer from './TimerScripts/Timer.js'
-
-// Import Enums
-import Enums from './Enums.js'
-
-// Set up Socket.io
-let socket = io(/* INSERT SERVER LOCATION HERE - WAS PREVIOUSLY AWS */);
+const app = express();
+const server = createServer(app);
+const io = new Server(server, {
+  connectionStateRecovery: {}
+});
 
 // Client's color for online game
 let your_color;
 
-// array of rootss on the same element.
+// array of roots on the same element.
 // TODO: FIX THIS so we don't get a warning for calling createRoot() multiple times IN GAME'S RENDER()
 let roots=Array(8848).fill(null); // maximum possible number of moves
 

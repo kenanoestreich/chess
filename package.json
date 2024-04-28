@@ -10,8 +10,12 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "express": "^4.19.2",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "socket.io": "^4.7.5",
+    "sqlite": "^5.1.1",
+    "sqlite3": "^5.1.7"
   },
   "devDependencies": {
     "@types/react": "^18.2.66",
