@@ -5,6 +5,8 @@ import isCheckmate from "src/CheckScripts/IsCheckmate";
 import isStalemate from "src/CheckScripts/IsStalemate";
 import isKingCurrentlyInCheck from "src/CheckScripts/IsKingCurrentlyInCheck";
 import findPieceAndDisplay from "src/HelperScripts/FindPieceAndDisplay";
+import movePiece from "src/MoveScripts/MovePiece";
+import { createRoot } from "react-dom/client";
 
 // Game Class
 // Highest level structure for playing the game
@@ -22,6 +24,9 @@ import findPieceAndDisplay from "src/HelperScripts/FindPieceAndDisplay";
 // myTime (time on my clock), 
 // theirTime (time on opponent's clock), 
 // enPassantTarget (is EnPassant possible on this move? either [null, null] or something like [2,0] as in [row,col] of square where the pawn would land after en Passant)
+// pieceClickedRow (row of the last piece clicked (i.e. which rank))
+// pieceClickedCol (column of the last piece clicked (i.e. which file))
+// roots (TODO: find out what this is lol)
 
 // Functions: 
 
@@ -35,6 +40,7 @@ import findPieceAndDisplay from "src/HelperScripts/FindPieceAndDisplay";
 class Game extends React.Component {
     constructor(props) {
       super(props);
+      // TODO make this cleaner. Probably a way to use ternary operator or something so I cut this to half the lines
       if (this.props.color==="black"){
         this.state = {
           history: [
@@ -63,7 +69,10 @@ class Game extends React.Component {
           myTurn: false, 
           myTime: this.props.startTime,
           theirTime: this.props.startTime,
-          enPassantTarget: Array(2).fill(null)
+          enPassantTarget: Array(2).fill(null),
+          pieceClickedRow: null,
+          pieceClickedCol: null, 
+          roots: Array(8848).fill(null), 
         }
       }
       else {
@@ -94,7 +103,10 @@ class Game extends React.Component {
           myTurn: true, 
           myTime: this.props.startTime,
           theirTime: this.props.startTime,
-          enPassantTarget: Array(2).fill(null)
+          enPassantTarget: Array(2).fill(null),
+          pieceClickedRow: null,
+          pieceClickedCol: null, 
+          roots: Array(8848).fill(null), 
         };
       }
     }
@@ -313,7 +325,10 @@ class Game extends React.Component {
       let squareNames = JSON.parse(JSON.stringify(this.state.squareNames)); 
       console.log(name); 
       let movename; 
-      let enPassantTarget = this.state.enPassantTarget; 
+      let enPassantTarget = this.state.enPassantTarget;
+      let pieceClickedCol = this.state.pieceClickedCol; 
+      let pieceClickedRow = this.state.pieceClickedRow;
+
   
       // If not at the most recent move, move to the most recent move
       if (this.state.stepNumber!==history.length-1){
@@ -413,7 +428,8 @@ class Game extends React.Component {
         if (newMiscSquares[i][j]==="threatened" || newMiscSquares[i][j]==="possible"){
    
           if (newMiscSquares[i][j]==="threatened"){
-            // find out which piece was clicked for naming the move
+            // find out which piece was clicked for naming the move 
+            // TODO make this easier to read somehow. 
             if ((newSquares[pieceClickedRow][pieceClickedCol]===Enums.blackKing)||(newSquares[pieceClickedRow][pieceClickedCol]===Enums.whiteKing)){
               movename="Kx"+this.state.squareNames[i][j];
             }
@@ -532,8 +548,10 @@ class Game extends React.Component {
             }); 
   
             // remember this piece's location in case they take a piece with it. 
-            pieceClickedRow = i; 
-            pieceClickedCol = j; 
+            this.setState({
+              pieceClickedRow: i,
+              pieceClickedCol: j,
+            });
             return; 
           }
         }
@@ -574,8 +592,10 @@ class Game extends React.Component {
             });
           }
           
-          pieceClickedRow = null; 
-          pieceClickedCol = null; 
+          this.setState({
+            pieceClickedRow: i,
+            pieceClickedCol: j, 
+          });
           return; 
         }
       }
@@ -640,6 +660,7 @@ class Game extends React.Component {
       const newMiscSquares = JSON.parse(JSON.stringify(this.state.miscSquares));
       const newSquares = current.squares;
       const enPassantTarget = this.state.enPassantTarget; 
+      const roots = this.state.roots;
       const moves = history.map((step, move) => {
         if (move!==0){
           if (move%2===1) { //white's move most recent
@@ -654,7 +675,7 @@ class Game extends React.Component {
           }
           // If I have time, fix this warning. Don't call render() within render()
           else if (move%2===0) {
-            const desc = history[move].move;d
+            const desc = history[move].move;
             if (roots[move]===null){
               roots[move] = createRoot(document.getElementById(move-1));
             }
