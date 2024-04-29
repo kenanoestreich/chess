@@ -3,6 +3,8 @@ import React from "react";
 import Enums from "src/Enums";
 import isCheckmate from "src/CheckScripts/IsCheckmate";
 import isStalemate from "src/CheckScripts/IsStalemate";
+import isKingCurrentlyInCheck from "src/CheckScripts/IsKingCurrentlyInCheck";
+import findPieceAndDisplay from "src/HelperScripts/FindPieceAndDisplay";
 
 // Game Class
 // Highest level structure for playing the game
@@ -12,7 +14,8 @@ import isStalemate from "src/CheckScripts/IsStalemate";
 // history (array of board states for each move), 
 // squareNames (notation of squares),
 // miscSquares (strings of "threatened", "possible", etc...), 
-// stepNumber (move #), whitesTurn (is it White's turn?),
+// stepNumber (move #), 
+// whitesTurn (is it White's turn?),
 // takenPieces (list of black's and white's lost pieces), 
 // color (color of player (white, black, or both)),
 // myTurn (bool for keeping track of timer switches), 
@@ -97,28 +100,28 @@ class Game extends React.Component {
     }
   
     componentDidMount(){
-      socket.on("OpponentMoved", (data) => this.opponentMoved(data["startSquare"],data["endSquare"]));
-      socket.on("ReceiveRecord", function(data){
-        console.log(JSON.stringify(data));  
-        root.render(
-          <div>
-            <LobbyPage 
-              wins={data["wins"]} 
-              losses={data["losses"]}
-            />
-            <br></br>
-            <h2>Practice While You Wait</h2> 
-            <Game color="both"/>
-          </div>
-        );
-      });
+      // socket.on("OpponentMoved", (data) => this.opponentMoved(data["startSquare"],data["endSquare"]));
+      // socket.on("ReceiveRecord", function(data){
+      //   console.log(JSON.stringify(data));  
+      //   root.render(
+      //     <div>
+      //       <LobbyPage 
+      //         wins={data["wins"]} 
+      //         losses={data["losses"]}
+      //       />
+      //       <br></br>
+      //       <h2>Practice While You Wait</h2> 
+      //       <Game color="both"/>
+      //     </div>
+      //   );
+      // });
     }
   
     finishGame(result){
-      socket.emit(result,{username: sessionStorage.getItem("currentUser")}); // either "WonGame" or "LostGame"
-      setTimeout((function(){
-        socket.emit("FetchRecord", {username: sessionStorage.getItem("currentUser")});
-      }),300);
+      // socket.emit(result,{username: sessionStorage.getItem("currentUser")}); // either "WonGame" or "LostGame"
+      // setTimeout((function(){
+      //   socket.emit("FetchRecord", {username: sessionStorage.getItem("currentUser")});
+      // }),300);
     }
   
     // Only used for multiplayer games
@@ -501,8 +504,8 @@ class Game extends React.Component {
             history.push({squares: newSquares, move: movename});
           }
           if (playerColor!=="both"){
-            console.log("Player " + playerColor + " played " + movename);
-            socket.emit("MadeAMove", {username: sessionStorage.getItem("currentUser"), startSquare: squareNames[pieceClickedRow][pieceClickedCol], endSquare: squareNames[i][j]});
+            // console.log("Player " + playerColor + " played " + movename);
+            // socket.emit("MadeAMove", {username: sessionStorage.getItem("currentUser"), startSquare: squareNames[pieceClickedRow][pieceClickedCol], endSquare: squareNames[i][j]});
             // document.getElementById("timers").firstChild.switch();
             // document.getElementById("timers").children[1].switch();
           }
@@ -651,7 +654,7 @@ class Game extends React.Component {
           }
           // If I have time, fix this warning. Don't call render() within render()
           else if (move%2===0) {
-            const desc = history[move].move;
+            const desc = history[move].move;d
             if (roots[move]===null){
               roots[move] = createRoot(document.getElementById(move-1));
             }

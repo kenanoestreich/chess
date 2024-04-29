@@ -5,8 +5,7 @@ import displayRookMoves from "../MoveScripts/Rooks/RookMoves";
 import displayBishopMoves from "../MoveScripts/Bishops/BishopMoves";
 import displayKnightMoves from "../MoveScripts/Knights/KnightMoves";
 import displayPawnMoves from "../MoveScripts/Pawns/PawnMoves";
-import Enums from "../../../version2/chess-server/src/Enums";
-
+import Enums from "src/Enums";
 // function to determine clicked piece and call the correct display function
 
 // King, Queen, Rook, Bishop, Knight, Pawn
