@@ -1,0 +1,17 @@
+    
+
+    .lightsquare {
+        background-color: rgb(180, 185, 255);
+        width: 10%;
+        height: 10%;
+        text-align: center;
+    }
+
+
+    .darksquare {
+        background-color: rgb(130, 130, 255);
+        width: 10%;
+        height: 10%;
+        text-align: center;
+    }
+

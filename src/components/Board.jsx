@@ -1,16 +1,17 @@
 import React from "react";
+import 'src/components/Board.css';
 
 // Define Square Object and its props
-// squareColor is used to track where pieces can move legally
+// squareColor is used to track where pieces can move legally (can be "lightsquare", "darksquare", "possiblesquare", "threatenedsquare", "selectedsquare", "inchecksquare")
 // onClick eventually refers back to handleClick()
 // value is the unicode of a piece or null
 function Square(props) {
     return (
-      <button className={props.squareColor} onClick={props.onClick} id={props.name}>
-        {props.value}
-      </button>
+      <button className={props.squareColor} onClick={props.onClick} id={props.name}>{props.value}</button>
     );
 }
+
+// TODO: Maybe this ought to utilize css grid or flexbox
 
 // Board Class 
 // 64 Squares of chess board 
@@ -25,7 +26,10 @@ class Board extends React.Component {
     // renderSquare() generates the square objects and assigns props based on inputs
     renderSquare(i,j,misc,squares,name) {
       if (misc==null){
-        if (((i+j)%2)===1){
+
+        // generate alternating light and dark squares
+
+        if (((i+j)%2)===1){ 
           return (
             <Square
               value={squares[i][j]}
@@ -45,6 +49,7 @@ class Board extends React.Component {
             />
           );
         }
+
       }
       else if (misc==="selected"){
         return (
