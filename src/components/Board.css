@@ -1,17 +1,49 @@
     
 
     .lightsquare {
-        background-color: rgb(180, 185, 255);
+        background-color: #e9f2f7;
         width: 10%;
         height: 10%;
         text-align: center;
     }
-
 
     .darksquare {
-        background-color: rgb(130, 130, 255);
+        background-color: #8fc0d8;
         width: 10%;
         height: 10%;
         text-align: center;
     }
+
+    .threatenedsquare {
+        background-color: #ffc6c6;
+        width: 10%;
+        height: 10%;
+        text-align: center;
+    }
+
+    .possiblesquare {
+        background-color: #f8f0aa;
+        width: 10%;
+        height: 10%;
+        text-align: center;
+    }
+
+    .selectedsquare {
+        background-color: #ffef70;
+        width: 10%;
+        height: 10%;
+        text-align: center;
+    }
+
+    .inchecksquare {
+        background-color: #ffc6c6;
+        width: 10%;
+        height: 10%;
+        text-align: center;
+    }
+
+    /* .board {
+        display: grid;
+        justify-content: center;
+    } */
 

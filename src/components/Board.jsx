@@ -100,7 +100,7 @@ class Board extends React.Component {
       const squares = JSON.parse(JSON.stringify(this.props.squares));
       if (this.props.color==="black"){
         return (
-          <div>
+          <div className="board">
             <div className="board-row"> 
               {this.renderSquare(0,0,miscSquares[0][0],squares,"h1")}
               {this.renderSquare(0,1,miscSquares[0][1],squares,"g1")}
